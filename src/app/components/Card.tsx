@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import BackButton from "./BackButton";
 
 export type CardProps = {
   name: string;
@@ -66,6 +67,7 @@ export default function Card({
           className="rounded-lg"
         />
       </div>
+      <BackButton />
     </motion.div>
   );
 }

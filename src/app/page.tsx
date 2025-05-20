@@ -3,31 +3,35 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-100 flex flex-col items-center justify-center gap-8">
-      <h1 className="text-xl font-semibold text-gray-800">Escolha um cartão</h1>
-      <div className="flex gap-8">
-        <Link href="/arthur">
-          <div className="text-center">
-            <Image
-              src="/me.jpg"
-              alt="Daedaluzz"
-              width={80}
-              height={80}
-              className="rounded-full"
-            />
-            <p className="mt-2 text-sm text-gray-700">Daedaluzz</p>
+    <main className="min-h-screen flex items-center justify-center bg-brand-white">
+      <div className="flex flex-row w-full max-w-[900px] h-screen">
+        {/* Arthur */}
+        <Link href="/arthur" className="relative w-1/2 h-full overflow-hidden">
+          <Image
+            src="/images/arthur.webp"
+            alt="Arthur Bernard"
+            fill
+            className="object-cover filter grayscale"
+          />
+          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-6">
+            <h2 className="text-brand-yellow font-caveat font-bold text-[clamp(1.5rem,4vw,2.5rem)] text-center">
+              Arthur Bernard
+            </h2>
           </div>
         </Link>
-        <Link href="/angelo">
-          <div className="text-center">
-            <Image
-              src="/socio.jpg"
-              alt="Sócio"
-              width={80}
-              height={80}
-              className="rounded-full"
-            />
-            <p className="mt-2 text-sm text-gray-700">Sócio</p>
+
+        {/* Ângelo */}
+        <Link href="/angelo" className="relative w-1/2 h-full overflow-hidden">
+          <Image
+            src="/images/angelo.webp"
+            alt="Ângelo Rodrigues"
+            fill
+            className="object-cover filter grayscale"
+          />
+          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-6">
+            <h2 className="text-brand-yellow font-caveat font-bold text-[clamp(1.5rem,4vw,2.5rem)] text-center">
+              Ângelo Rodrigues
+            </h2>
           </div>
         </Link>
       </div>
