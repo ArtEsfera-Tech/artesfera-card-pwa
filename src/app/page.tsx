@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-brand-white">
-      <div className="flex flex-row w-full max-w-[900px] h-screen">
+      <div className="flex flex-row w-full max-w-[900px] h-[100dvh]">
         {/* Arthur */}
         <Link href="/arthur" className="relative w-1/2 h-full overflow-hidden">
           <Image
