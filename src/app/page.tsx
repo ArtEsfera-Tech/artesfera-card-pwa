@@ -3,8 +3,10 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-brand-white">
-      <div className="flex flex-row w-full max-w-[900px] h-[100dvh]">
+    <main
+      className="h-[100dvh] flex items-center justify-center bg-brand-black"
+    >
+      <div className="flex flex-row w-full max-w-[900px] h-full">
         {/* Ângelo */}
         <Link href="/angelo" className="relative w-1/2 h-full overflow-hidden">
           <Image
@@ -15,7 +17,7 @@ export default function Home() {
           />
           <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-6">
             <div className="text-center">
-              <p className="text-xs sm:text-sm text-brand-white mb-1">
+              <p className="text-xs sm:text-sm text-brand-white mb-1 font-lato">
                 CEO, ArtEsfera
               </p>
               <h2 className="text-brand-yellow font-caveat font-bold text-[clamp(1.5rem,4vw,2.5rem)]">
@@ -34,7 +36,7 @@ export default function Home() {
           />
           <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-6">
             <div className="text-center">
-              <p className="text-xs sm:text-sm text-brand-white mb-1">
+              <p className="text-xs sm:text-sm text-brand-white mb-1 font-lato">
                 CTO, ArtEsfera
               </p>
               <h2 className="text-brand-yellow font-caveat font-bold text-[clamp(1.5rem,4vw,2.5rem)]">
