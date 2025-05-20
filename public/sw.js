@@ -1,14 +1,15 @@
-const CACHE_NAME = "artesfera-cache-v1";
+const CACHE_NAME = "artesfera-cache-v2";
 const ASSETS_TO_CACHE = [
   "/",
+  "/favicon.ico",
   "/android-chrome-192x192.png",
   "/android-chrome-512x512.png",
   "/favicon-32x32.png",
-  "/favicon.ico",
   "/apple-touch-icon.png",
-  // adicione seus arquivos CSS, JS, fontes locais aqui, se houver
+  "/manifest.webmanifest",
 ];
 
+// Ao instalar, adiciona os assets principais
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -18,6 +19,7 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
+// Remove caches antigos
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
@@ -33,21 +35,26 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
+// Estratégia Cache First para estáticos, e fallback se offline
 self.addEventListener("fetch", (event) => {
-  const url = event.request.url;
+  const request = event.request;
+  const url = new URL(request.url);
 
-  // Cache Google Fonts dinamicamente
+  // Cache Google Fonts
   if (
-    url.includes("fonts.googleapis.com") ||
-    url.includes("fonts.gstatic.com")
+    url.origin.includes("fonts.googleapis.com") ||
+    url.origin.includes("fonts.gstatic.com")
   ) {
     event.respondWith(
       caches.open("google-fonts-cache").then((cache) =>
-        cache.match(event.request).then((cachedResponse) => {
-          const fetchPromise = fetch(event.request).then((networkResponse) => {
-            cache.put(event.request, networkResponse.clone());
-            return networkResponse;
-          });
+        cache.match(request).then((cachedResponse) => {
+          const fetchPromise = fetch(request)
+            .then((networkResponse) => {
+              cache.put(request, networkResponse.clone());
+              return networkResponse;
+            })
+            .catch(() => cachedResponse); // fallback offline
+
           return cachedResponse || fetchPromise;
         })
       )
@@ -55,10 +62,41 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Cache First para assets no cache
+  // Cache First para tudo de _next (builds)
+  if (url.pathname.startsWith("/_next/")) {
+    event.respondWith(
+      caches.open("next-cache").then((cache) =>
+        cache.match(request).then((cachedResponse) => {
+          return (
+            cachedResponse ||
+            fetch(request).then((networkResponse) => {
+              cache.put(request, networkResponse.clone());
+              return networkResponse;
+            })
+          );
+        })
+      )
+    );
+    return;
+  }
+
+  // Cache First para os arquivos do app
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request);
+    caches.match(request).then((cachedResponse) => {
+      return (
+        cachedResponse ||
+        fetch(request)
+          .then((networkResponse) => {
+            return caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, networkResponse.clone());
+              return networkResponse;
+            });
+          })
+          .catch(() =>
+            // Se for navegação, retorna o index.html (SPA fallback)
+            request.mode === "navigate" ? caches.match("/") : null
+          )
+      );
     })
   );
 });
