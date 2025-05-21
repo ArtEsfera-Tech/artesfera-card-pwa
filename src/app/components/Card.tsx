@@ -141,7 +141,10 @@ export default function Card({
             target="_blank"
             className="self-start mb-4"
           >
-            <motion.div whileTap={{ scale: 0.95 }}>
+            <motion.div
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 text-brand-white text-4xl font-lato font-bold"
+            >
               <Image
                 src={logo}
                 alt="ArtEsfera Logo"
@@ -149,13 +152,14 @@ export default function Card({
                 height={64}
                 className="rounded-lg "
               />
+              ArtEsfera
             </motion.div>
           </Link>
-          <div className="text-brand-white">
-            <h1 className="text-2xl md:text-3xl font-bold font-caveat">
+          <div>
+            <h1 className="text-3xl md:text-4xl font-bold font-caveat text-brand-yellow">
               {name}
             </h1>
-            <p className="text-lg md:text-xl font-lato font-light mt-1">
+            <p className="text-lg md:text-xl font-lato font-light mt-1 text-brand-white">
               {role}
             </p>
           </div>

@@ -7,7 +7,7 @@ export default function Page() {
     <div className="min-h-screen bg-brand-black flex items-center justify-center px-4 py-8">
       <Card
         name="Angelo Rodrigues"
-        role="CEO, ArtEsfera"
+        role="Co-fundador e CEO"
         bio="Profissional com visão cultural e estratégica para projetos criativos e tecnológicos."
         avatar="/images/eugene-delacroix-la-liberte-guidant-le-peuple-720x1080.webp"
         logo="/logo.png"

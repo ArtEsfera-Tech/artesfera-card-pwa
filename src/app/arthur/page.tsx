@@ -7,7 +7,7 @@ export default function Page() {
     <div className="min-h-screen bg-brand-black flex items-center justify-center px-4 py-8">
       <Card
         name="Arthur Bernard"
-        role="CTO, ArtEsfera"
+        role="Co-fundador e CTO"
         bio="Contador de histórias e designer. Revolucionando o cruzamento entre cultura e tecnologia."
         avatar="/images/van-gogh-starry-night-1080x720.webp"
         logo="/logo.png"
