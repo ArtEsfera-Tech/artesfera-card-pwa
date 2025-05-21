@@ -1,7 +1,6 @@
 "use client";
 
 import Card from "../components/Card";
-import PWAInstallButton from "../components/PWAInstallButton";
 
 export default function Page() {
   return (
