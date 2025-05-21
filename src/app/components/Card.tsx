@@ -112,7 +112,9 @@ export default function Card({
           alt={bgImgDescription}
           fill
           className="object-cover object-right"
-          style={{ filter: "brightness(0.75)" }}
+          style={{
+            filter: "brightness(0.75) ",
+          }}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
           priority
         />
@@ -120,7 +122,7 @@ export default function Card({
 
       {/* Semi-transparent overlay for better text readability */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-brand-yellow/10 to-black/70"
+        className="absolute inset-0 bg-gradient-to-b from-brand-black/10 to-black/70"
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
@@ -145,14 +147,14 @@ export default function Card({
           >
             <motion.div
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 text-brand-white text-4xl font-lato font-bold"
+              className="flex items-center gap-2 text-brand-white text-4xl font-lato font-bold  "
             >
               <Image
                 src={logo}
                 alt="ArtEsfera Logo"
                 width={64}
                 height={64}
-                className="rounded-lg "
+                className="rounded-lg" 
               />
               ArtEsfera
             </motion.div>
