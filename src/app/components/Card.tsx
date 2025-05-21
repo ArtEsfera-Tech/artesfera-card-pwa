@@ -11,7 +11,8 @@ export type CardProps = {
   name: string;
   role: string;
   bio: string;
-  avatar: string;
+  bgImg: string;
+  bgImgDescription: string;
   logo: string;
   links: {
     label: string;
@@ -23,7 +24,8 @@ export default function Card({
   name,
   role,
   bio,
-  avatar,
+  bgImg,
+  bgImgDescription,
   logo,
   links,
 }: CardProps) {
@@ -106,8 +108,8 @@ export default function Card({
         }}
       >
         <Image
-          src={avatar}
-          alt={`Foto de ${name}`}
+          src={bgImg}
+          alt={bgImgDescription}
           fill
           className="object-cover object-right"
           style={{ filter: "brightness(0.75)" }}

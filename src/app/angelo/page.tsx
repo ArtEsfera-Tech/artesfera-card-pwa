@@ -9,7 +9,8 @@ export default function Page() {
         name="Angelo Rodrigues"
         role="Co-fundador e CEO"
         bio="Profissional com visão cultural e estratégica para projetos criativos e tecnológicos."
-        avatar="/images/eugene-delacroix-la-liberte-guidant-le-peuple-720x1080.webp"
+        bgImg="/images/eugene-delacroix-la-liberte-guidant-le-peuple-720x1080.webp"
+        bgImgDescription="Pintura de Eugène Delacroix - A Liberdade Guiando o Povo"
         logo="/logo.png"
         links={[
           {

@@ -1,6 +1,6 @@
-const CACHE_NAME = "artesfera-cache-v3";
-const DATA_CACHE_NAME = "artesfera-data-cache-v1";
-const STATIC_CACHE_NAME = "artesfera-next-static-v1";
+const CACHE_NAME = "artesfera-cache-v4";
+const DATA_CACHE_NAME = "artesfera-data-cache-v2";
+const STATIC_CACHE_NAME = "artesfera-next-static-v4";
 const GOOGLE_FONTS_CACHE = "google-fonts-cache";
 
 const ASSETS_TO_CACHE = [

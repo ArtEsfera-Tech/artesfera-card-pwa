@@ -9,7 +9,8 @@ export default function Page() {
         name="Arthur Bernard"
         role="Co-fundador e CTO"
         bio="Contador de histórias e designer. Revolucionando o cruzamento entre cultura e tecnologia."
-        avatar="/images/van-gogh-starry-night-1080x720.webp"
+        bgImg="/images/van-gogh-starry-night-1080x720.webp"
+        bgImgDescription="Pintura de Van Gogh- A Noite Estrelada"
         logo="/logo.png"
         links={[
           { label: "LinkedIn", url: "https://linkedin.com/in/ber-arthur" },
