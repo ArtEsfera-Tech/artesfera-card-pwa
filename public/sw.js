@@ -1,43 +1,9 @@
-const CACHE_NAME = "artesfera-cache-v2";
-const ASSETS_TO_CACHE = [
-  "/",
-  "/favicon.ico",
-  "/android-chrome-192x192.png",
-  "/android-chrome-512x512.png",
-  "/favicon-32x32.png",
-  "/apple-touch-icon.png",
-  "/manifest.webmanifest",
-];
-
-// Ao instalar, adiciona os assets principais
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
-  );
-  self.skipWaiting();
-});
-
-// Remove caches antigos
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches
-      .keys()
-      .then((keys) =>
-        Promise.all(
-          keys
-            .filter((key) => key !== CACHE_NAME)
-            .map((key) => caches.delete(key))
-        )
-      )
-  );
-  self.clients.claim();
-});
-
-// Estratégia Cache First para estáticos, e fallback se offline
 self.addEventListener("fetch", (event) => {
   const request = event.request;
+
+  // 🛑 Ignorar requisições que não sejam GET (como POST)
+  if (request.method !== "GET") return;
+
   const url = new URL(request.url);
 
   // Cache Google Fonts
@@ -53,7 +19,7 @@ self.addEventListener("fetch", (event) => {
               cache.put(request, networkResponse.clone());
               return networkResponse;
             })
-            .catch(() => cachedResponse); // fallback offline
+            .catch(() => cachedResponse);
 
           return cachedResponse || fetchPromise;
         })
@@ -62,7 +28,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Cache First para tudo de _next (builds)
+  // Cache First para _next
   if (url.pathname.startsWith("/_next/")) {
     event.respondWith(
       caches.open("next-cache").then((cache) =>
@@ -80,7 +46,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Cache First para os arquivos do app
+  // Cache First para o restante do app
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       return (
@@ -92,10 +58,7 @@ self.addEventListener("fetch", (event) => {
               return networkResponse;
             });
           })
-          .catch(() =>
-            // Se for navegação, retorna o index.html (SPA fallback)
-            request.mode === "navigate" ? caches.match("/") : null
-          )
+          .catch(() => (request.mode === "navigate" ? caches.match("/") : null))
       );
     })
   );

@@ -9,17 +9,23 @@ interface NavigatorStandalone extends Navigator {
   standalone?: boolean;
 }
 
+function isMobileDevice(): boolean {
+  if (typeof navigator === "undefined") return false;
+  return /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+}
+
 export function usePWAInstall() {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [isInstallable, setIsInstallable] = useState(false);
 
   useEffect(() => {
+    const isMobile = isMobileDevice();
     const isStandalone =
       window.matchMedia("(display-mode: standalone)").matches ||
       (window.navigator as NavigatorStandalone).standalone === true;
 
-    if (isStandalone) return;
+    if (!isMobile || isStandalone) return;
 
     const handler = (e: Event) => {
       e.preventDefault();
@@ -32,7 +38,7 @@ export function usePWAInstall() {
   }, []);
 
   const install = async () => {
-    if (!deferredPrompt) return;
+    if (!deferredPrompt) return false;
     await deferredPrompt.prompt();
     const choice = await deferredPrompt.userChoice;
     setDeferredPrompt(null);
