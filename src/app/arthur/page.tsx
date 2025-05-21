@@ -8,13 +8,14 @@ export default function Page() {
       <Card
         name="Arthur Bernard"
         role="CTO, ArtEsfera"
-        bio="Especialista em IA e Big Data. Explorando o cruzamento entre cultura e tecnologia."
+        bio="Contador de histórias e designer. Revolucionando o cruzamento entre cultura e tecnologia."
         avatar="/images/arthur.webp"
         logo="/logo.png"
         links={[
-          { label: "LinkedIn", url: "https://linkedin.com/in/daedaluzz" },
-          { label: "Email", url: "mailto:daedaluzz@artesfera.tech" },
+          { label: "LinkedIn", url: "https://linkedin.com/in/ber-arthur" },
+          { label: "Email", url: "mailto:arthurbernard@artesfera.tech" },
           { label: "GitHub", url: "https://github.com/daedaluzz" },
+          { label: "WhatsApp", url: "https://wa.me/5531992971136" },
         ]}
       />
     </div>

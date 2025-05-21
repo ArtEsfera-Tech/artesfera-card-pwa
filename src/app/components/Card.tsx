@@ -68,7 +68,9 @@ export default function Card({
             <h1 className="text-2xl md:text-3xl font-bold font-caveat">
               {name}
             </h1>
-            <p className="text-lg md:text-xl font-lato mt-1">{role}</p>
+            <p className="text-lg md:text-xl font-lato font-light mt-1">
+              {role}
+            </p>
           </div>
         </div>
         <div className="flex-1 flex items-center my-4">
