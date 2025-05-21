@@ -32,12 +32,9 @@ Clone o repositório:
 git clone https://github.com/Daedaluzz/artesfera-card-pwa.git
 cd artesfera-card-pwa
 npm install
-Inicie o servidor de desenvolvimento:
-
-bash
-Copy
-Edit
 npm run dev
+```
+
 Abra http://localhost:3000 no navegador para visualizar.
 
 📁 Estrutura do Projeto
@@ -62,4 +59,3 @@ npm run lint: Executa o linter para verificar problemas no código
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
 Desenvolvido com ❤️ por Daedaluzz
-```
