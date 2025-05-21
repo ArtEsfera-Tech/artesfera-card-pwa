@@ -20,6 +20,7 @@ export default function Home() {
               src="/images/angelo.webp"
               alt="Ângelo Rodrigues"
               fill
+              priority
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover filter grayscale"
             />
@@ -53,6 +54,7 @@ export default function Home() {
               src="/images/arthur.webp"
               alt="Arthur Bernard"
               fill
+              priority
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover filter grayscale object-[center_10%]"
             />
