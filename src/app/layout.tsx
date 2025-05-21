@@ -19,7 +19,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#A4144E",
+  themeColor: "#fcc931",
   // For iOS specific configurations:
   viewportFit: "cover",
 };
@@ -32,8 +32,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${lato.variable} ${caveat.variable} antialiased`}>
-        {children}
         <ServiceWorker />
+        {children}
         <Link
           href="https://artesfera.tech"
           target="_blank"

@@ -1,15 +1,15 @@
-const CACHE_NAME = "artesfera-cache-v2";
+const CACHE_NAME = "artesfera-cache-v3";
 
 const ASSETS_TO_CACHE = [
   "/",
   "/favicon.ico",
-  "/android-chrome-192x192.svg",
-  "/android-chrome-512x512.svg",
-  "/android-chrome-1024x1024.svg",
+  "/android-chrome-192x192.png",
+  "/android-chrome-512x512.png",
+  "/android-chrome-1024x1024.png",
   "/favicon-32x32.png",
   "/apple-touch-icon.png",
   "/manifest.webmanifest",
-  "/images/qr-code-business.svg",
+  "/images/qr-code-business.png",
 ];
 
 // INSTALAÇÃO - Cache dos arquivos principais
