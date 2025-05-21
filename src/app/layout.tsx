@@ -45,7 +45,7 @@ export default function RootLayout({
             alt="ArtEsfera Logo"
             width={40}
             height={40}
-            className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+            className="opacity-80"
           />
         </Link>
       </body>

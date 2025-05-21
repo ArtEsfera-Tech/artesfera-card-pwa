@@ -9,7 +9,7 @@ export default function Page() {
         name="Arthur Bernard"
         role="CTO, ArtEsfera"
         bio="Contador de histórias e designer. Revolucionando o cruzamento entre cultura e tecnologia."
-        avatar="/images/arthur.webp"
+        avatar="/images/van-gogh-starry-night-1080x720.webp"
         logo="/logo.png"
         links={[
           { label: "LinkedIn", url: "https://linkedin.com/in/ber-arthur" },

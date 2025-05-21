@@ -28,7 +28,7 @@ export default function PWAInstallButton() {
   return (
     <button
       onClick={handleInstallClick}
-      className="w-full py-3 bg-brand-yellow/90 hover:bg-brand-yellow text-black font-medium flex items-center justify-center gap-2 transition-all"
+      className="w-full py-3 bg-brand-yellow/90  text-black font-medium flex items-center justify-center gap-2 transition-all"
     >
       <Download className="w-4 h-4" />
       Salvar este cartão

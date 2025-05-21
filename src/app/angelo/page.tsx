@@ -9,7 +9,7 @@ export default function Page() {
         name="Ângelo Rodrigues"
         role="CEO, ArtEsfera"
         bio="Profissional com visão cultural e estratégica para projetos criativos e tecnológicos."
-        avatar="/images/angelo.webp"
+        avatar="/images/eugene-delacroix-la-liberte-guidant-le-peuple-720x1080.webp"
         logo="/logo.png"
         links={[
           {

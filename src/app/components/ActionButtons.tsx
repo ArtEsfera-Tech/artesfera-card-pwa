@@ -34,43 +34,44 @@ export default function ActionButtons({ qrCodeImage }: ActionButtonsProps) {
 
   return (
     <>
-      {/* Container único para todos os botões */}
-      <div className="absolute top-4 right-4 z-50 flex gap-2">
-        {/* Botão Compartilhar */}
-        <button
-          onClick={handleShare}
-          className="p-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 transition-all"
-          aria-label="Compartilhar"
-        >
-          <Share2 className="w-5 h-5" />
-        </button>
-
-        {/* Botão QR Code */}
-        <button
-          onClick={() => setShowQr(true)}
-          className="p-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 transition-all"
-          aria-label="Mostrar QR Code"
-        >
-          <QrCode className="w-5 h-5" />
-        </button>
-
+      {/* Header container reposicionado */}
+      <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-2 ">
         {/* Botão Voltar */}
         <button
           onClick={() => router.back()}
-          className="p-2 rounded-full bg-black/30 backdrop-blur-sm text-white hover:bg-black/50 transition-all"
+          className="p-2 rounded-full text-white"
           aria-label="Voltar"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
+
+        {/* Ações */}
+        <div className="flex gap-2">
+          <button
+            onClick={handleShare}
+            className="p-2 rounded-full text-white "
+            aria-label="Compartilhar"
+          >
+            <Share2 className="w-5 h-5" />
+          </button>
+
+          <button
+            onClick={() => setShowQr(true)}
+            className="p-2 rounded-full text-white "
+            aria-label="Mostrar QR Code"
+          >
+            <QrCode className="w-5 h-5" />
+          </button>
+        </div>
       </div>
 
-      {/* Overlay do QR Code (mantido igual) */}
+      {/* Overlay do QR Code */}
       {showQr && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
           <div className="bg-white p-6 rounded-xl text-center max-w-xs w-full relative">
             <button
               onClick={() => setShowQr(false)}
-              className="absolute top-2 right-2 p-1 text-brand-black hover:text-black rounded-full hover:bg-gray-100"
+              className="absolute top-2 right-2 p-1 text-brand-black"
               aria-label="Fechar"
             >
               <X className="w-5 h-5" />
