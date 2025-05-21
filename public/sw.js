@@ -5,6 +5,8 @@ const GOOGLE_FONTS_CACHE = "google-fonts-cache";
 
 const ASSETS_TO_CACHE = [
   "/",
+  "/arthur",
+  "/angelo",
   "/favicon.ico",
   "/android-chrome-192x192.png",
   "/android-chrome-512x512.png",
@@ -117,9 +119,13 @@ self.addEventListener("fetch", (event) => {
             return networkRes;
           });
         })
-        .catch(() =>
-          request.mode === "navigate" ? caches.match("/") : undefined
-        );
+        .catch(() => {
+          if (request.mode === "navigate") {
+            if (url.pathname === "/arthur") return caches.match("/arthur");
+            if (url.pathname === "/angelo") return caches.match("/angelo");
+            return caches.match("/");
+          }
+        });
     })
   );
 });
