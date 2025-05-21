@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import ActionButtons from "./ActionButtons";
+import PWAInstallButton from "./PWAInstallButton";
 
 export type CardProps = {
   name: string;
@@ -26,11 +28,8 @@ export default function Card({
 }: CardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="relative max-w-md w-full mx-auto rounded-2xl shadow-xl overflow-hidden"
-      style={{ aspectRatio: "3/4" }} // Proporção mais comum para cartões
+      className="relative max-w-md w-full mx-auto rounded-2xl shadow-xl overflow-hidden flex flex-col"
+      style={{ aspectRatio: "3/4" }}
     >
       {/* Background Image with overlay */}
       <div className="absolute inset-0 z-0">
@@ -44,12 +43,12 @@ export default function Card({
           priority
         />
       </div>
-
+      <ActionButtons qrCodeImage="/images/arthur.webp" />
       {/* Semi-transparent overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
-
-      {/* Main content container */}
-      <div className="relative z-10 h-full flex flex-col p-6 justify-between">
+      {/* Main content container with padding bottom for PWA button */}
+      <div className="relative z-10 flex-1 flex flex-col p-6">
+        {/* Aumente o padding-bottom conforme necessário */}
         {/* Top section - Logo and basic info */}
         <div className="flex flex-col">
           <Link
@@ -65,21 +64,18 @@ export default function Card({
               className="rounded-lg hover:opacity-80 transition-opacity"
             />
           </Link>
-
-          <div className="text-white">
+          <div className="text-brand-white">
             <h1 className="text-2xl md:text-3xl font-bold font-caveat">
               {name}
             </h1>
             <p className="text-lg md:text-xl font-lato mt-1">{role}</p>
           </div>
         </div>
-
-        {/* Middle section - Bio */}
         <div className="flex-1 flex items-center my-4">
-          <p className="text-white text-base md:text-lg font-lato">{bio}</p>
+          <p className="text-brand-white text-base md:text-lg font-lato">
+            {bio}
+          </p>
         </div>
-
-        {/* Bottom section - Links */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           {links.map((link, idx) => (
             <a
@@ -87,12 +83,17 @@ export default function Card({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-yellow hover:underline text-sm sm:text-base font-semibold whitespace-nowrap"
+              className="text-brand-yellow text-sm sm:text-base font-semibold whitespace-nowrap"
             >
               {link.label}
             </a>
           ))}
         </div>
+      </div>
+
+      {/* PWAInstallButton positioned at the very bottom */}
+      <div className="relative z-20">
+        <PWAInstallButton />
       </div>
     </motion.div>
   );
