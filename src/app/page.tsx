@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-brand-black">
-      <div className="flex flex-row w-full max-w-[900px] h-[100dvh]">
+      <div className="flex flex-row w-full max-w-[900px] h-[95dvh]">
         {/* Ângelo */}
         <Link href="/angelo" className="relative w-1/2 h-full overflow-hidden">
           <motion.div
