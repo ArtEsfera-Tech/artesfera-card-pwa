@@ -28,7 +28,7 @@ export default function PWAInstallButton() {
   return (
     <button
       onClick={handleInstallClick}
-      className="mt-4 flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition"
+      className="max-w-sm mx-auto mt-10 flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition"
     >
       <svg
         className="w-5 h-5"

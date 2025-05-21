@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import BackButton from "./BackButton";
+import Link from "next/link";
 
 export type CardProps = {
   name: string;
@@ -29,45 +29,71 @@ export default function Card({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="max-w-sm mx-auto mt-10 bg-white rounded-2xl shadow-xl p-6 text-center space-y-4"
+      className="relative max-w-md w-full mx-auto rounded-2xl shadow-xl overflow-hidden"
+      style={{ aspectRatio: "3/4" }} // Proporção mais comum para cartões
     >
-      <div className="flex justify-center">
+      {/* Background Image with overlay */}
+      <div className="absolute inset-0 z-0">
         <Image
           src={avatar}
           alt={`Foto de ${name}`}
-          width={100}
-          height={100}
-          className="rounded-full object-cover"
+          fill
+          className="object-cover"
+          style={{ filter: "brightness(0.75)" }}
+          sizes="(max-width: 640px) 100vw, 400px"
+          priority
         />
       </div>
-      <div>
-        <h1 className="text-2xl font-bold text-gray-800">{name}</h1>
-        <p className="text-sm text-gray-500">{role}</p>
-        <p className="text-sm text-gray-600 mt-2">{bio}</p>
-      </div>
-      <div className="flex justify-center gap-4 flex-wrap">
-        {links.map((link, idx) => (
-          <a
-            key={idx}
-            href={link.url}
+
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
+
+      {/* Main content container */}
+      <div className="relative z-10 h-full flex flex-col p-6 justify-between">
+        {/* Top section - Logo and basic info */}
+        <div className="flex flex-col">
+          <Link
+            href="https://artesfera.tech"
             target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline text-sm"
+            className="self-start mb-4"
           >
-            {link.label}
-          </a>
-        ))}
+            <Image
+              src={logo}
+              alt="ArtEsfera Logo"
+              width={64}
+              height={64}
+              className="rounded-lg hover:opacity-80 transition-opacity"
+            />
+          </Link>
+
+          <div className="text-white">
+            <h1 className="text-2xl md:text-3xl font-bold font-caveat">
+              {name}
+            </h1>
+            <p className="text-lg md:text-xl font-lato mt-1">{role}</p>
+          </div>
+        </div>
+
+        {/* Middle section - Bio */}
+        <div className="flex-1 flex items-center my-4">
+          <p className="text-white text-base md:text-lg font-lato">{bio}</p>
+        </div>
+
+        {/* Bottom section - Links */}
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          {links.map((link, idx) => (
+            <a
+              key={idx}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-yellow hover:underline text-sm sm:text-base font-semibold whitespace-nowrap"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
-      <div className="flex justify-center mt-4">
-        <Image
-          src={logo}
-          alt="Logo"
-          width={80}
-          height={80}
-          className="rounded-lg"
-        />
-      </div>
-      <BackButton />
     </motion.div>
   );
 }

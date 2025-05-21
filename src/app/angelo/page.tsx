@@ -14,7 +14,6 @@ export default function page() {
           { label: "Email", url: "mailto:socio@artesfera.tech" },
         ]}
       />
-      <PWAInstallButton />
     </div>
   );
 }

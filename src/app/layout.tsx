@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { caveat, lato } from "./fonts";
+import Image from "next/image";
+import Link from "next/link";
 import ServiceWorker from "./_components/ServiceWorker";
 
 export const metadata: Metadata = {
@@ -32,6 +34,20 @@ export default function RootLayout({
       <body className={`${lato.variable} ${caveat.variable} antialiased`}>
         {children}
         <ServiceWorker />
+        <Link
+          href="https://artesfera.tech"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden xl:block fixed bottom-4 right-4 z-50"
+        >
+          <Image
+            src="/logo.png"
+            alt="ArtEsfera Logo"
+            width={40}
+            height={40}
+            className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+          />
+        </Link>
       </body>
     </html>
   );

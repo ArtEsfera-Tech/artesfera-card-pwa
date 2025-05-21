@@ -20,6 +20,7 @@ export default function Home() {
               src="/images/angelo.webp"
               alt="Ângelo Rodrigues"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover filter grayscale"
             />
           </motion.div>
@@ -52,6 +53,7 @@ export default function Home() {
               src="/images/arthur.webp"
               alt="Arthur Bernard"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover filter grayscale object-[center_10%]"
             />
           </motion.div>
