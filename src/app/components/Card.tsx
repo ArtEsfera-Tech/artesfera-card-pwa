@@ -43,7 +43,7 @@ export default function Card({
           priority
         />
       </div>
-      <ActionButtons qrCodeImage="/images/arthur.webp" />
+      <ActionButtons qrCodeImage="/images/qr-code-business.svg" />
       {/* Semi-transparent overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
       {/* Main content container with padding bottom for PWA button */}

@@ -70,7 +70,7 @@ export default function ActionButtons({ qrCodeImage }: ActionButtonsProps) {
           <div className="bg-white p-6 rounded-xl text-center max-w-xs w-full relative">
             <button
               onClick={() => setShowQr(false)}
-              className="absolute top-2 right-2 p-1 text-gray-500 hover:text-black rounded-full hover:bg-gray-100"
+              className="absolute top-2 right-2 p-1 text-brand-black hover:text-black rounded-full hover:bg-gray-100"
               aria-label="Fechar"
             >
               <X className="w-5 h-5" />
@@ -86,8 +86,8 @@ export default function ActionButtons({ qrCodeImage }: ActionButtonsProps) {
               />
             </div>
 
-            <p className="text-sm text-gray-600 mt-4">
-              Escaneie este QR Code para acessar meu cartão
+            <p className="text-sm text-brand-black mt-4">
+              Escaneie este QR Code para acessar nossos cartões.
             </p>
           </div>
         </div>
