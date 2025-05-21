@@ -1,7 +1,47 @@
+const CACHE_NAME = "artesfera-cache-v2";
+
+const ASSETS_TO_CACHE = [
+  "/",
+  "/favicon.ico",
+  "/android-chrome-192x192.png",
+  "/android-chrome-512x512.png",
+  "/favicon-32x32.png",
+  "/apple-touch-icon.png",
+  "/manifest.webmanifest",
+  "/images/qr-code-business.svg",
+];
+
+// INSTALAÇÃO - Cache dos arquivos principais
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS_TO_CACHE);
+    })
+  );
+  self.skipWaiting();
+});
+
+// ATIVAÇÃO - Limpa caches antigos
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((key) => key !== CACHE_NAME)
+            .map((key) => caches.delete(key))
+        )
+      )
+  );
+  self.clients.claim();
+});
+
+// FETCH - Estrutura existente, mantém só uma vez
 self.addEventListener("fetch", (event) => {
   const request = event.request;
 
-  // 🛑 Ignorar requisições que não sejam GET (como POST)
+  // Ignorar requisições que não sejam GET
   if (request.method !== "GET") return;
 
   const url = new URL(request.url);
@@ -46,7 +86,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Cache First para o restante do app
+  // Cache First para o restante
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       return (
