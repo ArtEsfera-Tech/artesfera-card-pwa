@@ -11,43 +11,27 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#fcc931",
     icons: [
       {
-        src: "/android-chrome-192x192.svg",
+        src: "/android-chrome-192x192.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        src: "/android-chrome-512x512.svg",
+        src: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
+        src: "/android-chrome-512x512-maskable.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",
       },
       {
-        src: "/android-chrome-1024x1024.svg",
+        src: "/android-chrome-1024x1024.png",
         sizes: "1024x1024",
-        type: "image/svg",
+        type: "image/png",
         purpose: "maskable",
-      },
-
-      {
-        src: "/favicon-16x16.png",
-        sizes: "16x16",
-        type: "image/png",
-      },
-      {
-        src: "/apple-touch-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-      {
-        src: "/favicon-32x32.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        src: "/favicon.ico",
-        sizes: "48x48",
-        type: "image/x-icon",
-      },
+      }
     ],
   };
 }
