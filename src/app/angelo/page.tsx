@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-brand-black flex items-center justify-center px-4 py-8">
       <Card
-        name="Ângelo Rodrigues"
+        name="Angelo Rodrigues"
         role="CEO, ArtEsfera"
         bio="Profissional com visão cultural e estratégica para projetos criativos e tecnológicos."
         avatar="/images/eugene-delacroix-la-liberte-guidant-le-peuple-720x1080.webp"

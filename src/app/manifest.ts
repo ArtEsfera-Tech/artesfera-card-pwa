@@ -2,26 +2,32 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "ArtEsfera",
-    short_name: "ArtEsfera",
-    description: "Cartão para membros da ArtEsfera.",
+    name: "Contatos ArtEsfera",
+    short_name: "Contatos",
+    description: "Cartão digital para membros da ArtEsfera.",
     start_url: "/",
     display: "standalone",
     background_color: "#292423",
-    theme_color: "#FDF6EC",
+    theme_color: "#fcc931",
     icons: [
       {
-        src: "/android-chrome-192x192.png",
+        src: "/android-chrome-192x192.svg",
         sizes: "192x192",
         type: "image/png",
-        purpose: "any",
       },
       {
-        src: "/android-chrome-512x512.png",
+        src: "/android-chrome-512x512.svg",
         sizes: "512x512",
         type: "image/png",
-        purpose: "any",
+        purpose: "maskable",
       },
+      {
+        src: "/android-chrome-1024x1024.svg",
+        sizes: "1024x1024",
+        type: "image/svg",
+        purpose: "maskable",
+      },
+
       {
         src: "/favicon-16x16.png",
         sizes: "16x16",

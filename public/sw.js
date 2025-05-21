@@ -3,8 +3,9 @@ const CACHE_NAME = "artesfera-cache-v2";
 const ASSETS_TO_CACHE = [
   "/",
   "/favicon.ico",
-  "/android-chrome-192x192.png",
-  "/android-chrome-512x512.png",
+  "/android-chrome-192x192.svg",
+  "/android-chrome-512x512.svg",
+  "/android-chrome-1024x1024.svg",
   "/favicon-32x32.png",
   "/apple-touch-icon.png",
   "/manifest.webmanifest",
