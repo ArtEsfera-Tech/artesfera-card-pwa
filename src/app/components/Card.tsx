@@ -202,7 +202,7 @@ export default function Card({
                 className="self-start mb-6"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex items-center gap-3 text-brand-white hover:text-brand-yellow transition-colors duration-300">
+                <div className="flex items-center gap-3 text-brand-white ">
                   <Image
                     src={logo}
                     alt="Logo"
@@ -261,11 +261,11 @@ export default function Card({
                     key={idx}
                     href={link.url}
                     target="_blank"
-                    className="group relative text-brand-yellow text-base font-semibold whitespace-nowrap transition-all duration-300 hover:scale-105"
+                    className="group relative text-brand-yellow text-base font-semibold whitespace-nowrap transition-all duration-300 "
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span className="relative z-10">{link.label}</span>
-                    <div className="absolute inset-x-0 bottom-0 h-0.5 bg-brand-yellow scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    <div className="absolute inset-x-0 bottom-0 h-0.5 bg-brand-yellow scale-x-0 " />
                   </Link>
                 ))}
               </div>
