@@ -87,7 +87,7 @@ export default function Card({
     }
 
     setIsFlipped(!isFlipped);
-    setShowHint(false);
+    setShowHint(!showHint);
   };
 
   return (
@@ -132,13 +132,6 @@ export default function Card({
                 priority
               />
             </motion.div>
-
-            {/* Overlay gradiente animado */}
-            <motion.div
-              variants={overlayAnimation}
-              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-            />
-
             {/* Elementos decorativos */}
             <motion.div
               variants={overlayAnimation}
@@ -158,7 +151,7 @@ export default function Card({
                   animate="pulse"
                   exit={{ opacity: 0, y: 20 }}
                 >
-                  <div className="bg-black/80 backdrop-blur-sm text-white px-6 py-3 rounded-full flex items-center gap-3 border border-brand-yellow/30">
+                  <div className="bg-black/70 backdrop-blur-sm text-white px-6 py-3 rounded-full flex items-center gap-3 border border-brand-yellow/30">
                     <MousePointerClickIcon className="text-brand-yellow w-5 h-5" />
                     <span className="text-sm font-medium">
                       Clique para virar
@@ -281,7 +274,7 @@ export default function Card({
             {/* Botão PWA fixo */}
             {isMobile && (
               <motion.div
-                className="absolute bottom-0 left-0 right-0 p-6"
+                className="absolute bottom-0 left-0 right-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: isFlipped ? 1 : 0, y: isFlipped ? 0 : 20 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
