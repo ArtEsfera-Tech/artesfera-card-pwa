@@ -30,3 +30,14 @@ body {
   --color-brand-black: #292423;
   --color-brand-brown: #574c42;
 }
+.perspective {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
