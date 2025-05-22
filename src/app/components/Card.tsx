@@ -19,6 +19,7 @@ export type CardProps = {
     label: string;
     url: string;
   }[];
+  vcf: string;
 };
 
 export default function Card({
@@ -29,6 +30,7 @@ export default function Card({
   bgImgDescription,
   logo,
   links,
+  vcf,
 }: CardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -165,7 +167,7 @@ export default function Card({
 
         {/* VERSO do cartão */}
         <motion.div
-          className="absolute inset-0 backface-hidden rounded-2xl overflow-auto"
+          className="absolute inset-0 backface-hidden rounded-2xl overflow-auto "
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
@@ -185,10 +187,9 @@ export default function Card({
             />
           </div>
 
-          <ActionButtons qrCodeImage="/images/qr-code-business.svg" />
-
           {/* Container principal */}
           <div className="relative z-10 h-full flex flex-col px-8 pt-16">
+            <ActionButtons qrCodeImage="/images/qr-code-business.svg" />
             {/* Cabeçalho com melhor hierarquia */}
             <motion.div
               className="flex flex-col mb-8"
@@ -274,12 +275,12 @@ export default function Card({
             {/* Botão PWA fixo */}
             {isMobile && (
               <motion.div
-                className="absolute bottom-0 left-0 right-0"
+                className="absolute bottom-0 left-0 right-0 z-50"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: isFlipped ? 1 : 0, y: isFlipped ? 0 : 20 }}
                 transition={{ delay: 0.7, duration: 0.5 }}
               >
-                <PWAInstallButton />
+                <PWAInstallButton vcfUrl={vcf} />
               </motion.div>
             )}
           </div>

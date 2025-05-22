@@ -18,6 +18,7 @@ export default function Page() {
           { label: "GitHub", url: "https://github.com/daedaluzz" },
           { label: "WhatsApp", url: "https://wa.me/5531992971136" },
         ]}
+        vcf="contacts/arthur.vcf"
       />
     </div>
   );

@@ -19,8 +19,8 @@ export default function ActionButtons({ qrCodeImage }: ActionButtonsProps) {
     try {
       if (navigator.share) {
         await navigator.share({
-          title: "Meu Cartão Digital",
-          text: "Confira meu cartão digital",
+          title: "Cartões digitais ArtEsfera",
+          text: "Confira nossos contatos!",
           url: currentUrl,
         });
       } else {
@@ -34,8 +34,8 @@ export default function ActionButtons({ qrCodeImage }: ActionButtonsProps) {
 
   return (
     <>
-      {/* Header container reposicionado */}
-      <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-2 ">
+      {/* Header container */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-4 py-2 ">
         {/* Botão Voltar */}
         <button
           onClick={() => router.back()}
@@ -67,10 +67,22 @@ export default function ActionButtons({ qrCodeImage }: ActionButtonsProps) {
 
       {/* Overlay do QR Code */}
       {showQr && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="bg-white p-6 rounded-xl text-center max-w-xs w-full relative">
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          onClick={(e) => {
+            e.stopPropagation(); // <-- prevenir propagação
+            setShowQr(false);
+          }}
+        >
+          <div
+            className="bg-white p-6 rounded-xl text-center max-w-xs w-full relative"
+            onClick={(e) => e.stopPropagation()} // <-- prevenir propagação dentro
+          >
             <button
-              onClick={() => setShowQr(false)}
+              onClick={(e) => {
+                e.stopPropagation(); // <-- garantir que o botão não dispare flip
+                setShowQr(false);
+              }}
               className="absolute top-2 right-2 p-1 text-brand-black"
               aria-label="Fechar"
             >

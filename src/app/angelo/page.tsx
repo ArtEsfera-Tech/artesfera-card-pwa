@@ -20,6 +20,7 @@ export default function Page() {
           { label: "Email", url: "mailto:angelorodrigues@artesfera.tech" },
           { label: "WhatsApp", url: "https://wa.me/5581996066502" },
         ]}
+        vcf="/contacts/angelo.vcf"
       />
     </div>
   );
