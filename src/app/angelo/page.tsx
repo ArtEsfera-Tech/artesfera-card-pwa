@@ -8,7 +8,7 @@ export default function Page() {
       <Card
         name="Angelo Rodrigues"
         role="Co-fundador e CEO"
-        bio="Profissional com visão sociocultural e estratégica para projetos criativos e tecnológicos."
+        bio="Educador com visão sociocultural e estratégica para projetos criativos e tecnológicos."
         bgImg="/images/the-school-of-athens-raffaello-sanzio-da-urbino720x1080.webp"
         bgImgDescription="Pintura de Eugène Delacroix - A Liberdade Guiando o Povo"
         logo="/logo.png"
