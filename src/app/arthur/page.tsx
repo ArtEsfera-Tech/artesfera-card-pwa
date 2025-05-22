@@ -8,7 +8,7 @@ export default function Page() {
       <Card
         name="Arthur Bernard"
         role="Co-fundador e CTO"
-        bio="Contador de histórias e designer. Revolucionando o cruzamento entre cultura e tecnologia."
+        bio="Contador de histórias e designer. Revolucionando o cruzamento entre arte e tecnologia."
         bgImg="/images/van-gogh-starry-night-1080x720.webp"
         bgImgDescription="Pintura de Van Gogh- A Noite Estrelada"
         logo="/logo.png"
