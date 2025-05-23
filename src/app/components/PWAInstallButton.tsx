@@ -112,7 +112,8 @@ export default function PWAInstallButton({ vcfUrl }: PWAInstallButtonProps) {
               </button>
 
               <div className="text-center font-semibold text-lg mb-2">
-                ✓ Contato salvo com sucesso!
+                ✓ Abra o arquivo que foi baixado e o contato será salvo na sua
+                agenda.
               </div>
 
               {canInstall && (
