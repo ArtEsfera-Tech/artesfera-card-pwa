@@ -100,16 +100,14 @@ export default function Card({
         animate={{
           rotateY: isFlipped ? 180 : 0,
           opacity: isLoaded ? 1 : 0,
-          scale: isLoaded ? 1 : 0.8,
-          y: isLoaded ? 0 : 50,
+       
         }}
         transition={{
           rotateY: { duration: 0.6 },
           opacity: { duration: 0.8, ease: "easeOut" },
-          scale: { duration: 0.8, ease: "easeOut" },
-          y: { duration: 0.8, ease: "easeOut" },
+    
         }}
-        initial={{ opacity: 0, scale: 0.8, y: 50 }}
+        initial={{ opacity: 0}}
         style={{
           transformStyle: "preserve-3d",
           aspectRatio: isMobile ? "2/3" : "3/4",
